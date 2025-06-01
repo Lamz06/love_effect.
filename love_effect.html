@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>"Ngo Bao Lam just sent his love to you."</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+    .heart-icon {
+      position: absolute;
+      font-size: 30px;
+      animation: floatHeart 8s linear infinite;
+      opacity: 0.8;
+      filter: drop-shadow(0 0 5px hotpink) drop-shadow(0 0 10px deeppink);
+    }
+
+    @keyframes floatHeart {
+      from {
+        transform: translateY(100vh) scale(1);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(-20vh) scale(1.3);
+        opacity: 1;
+      }
+    }
+
+    .name {
+      position: absolute;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      opacity: 0.8;
+      text-shadow: 0 0 10px #fff, 0 0 20px #f0f;
+      animation: floatText 10s linear infinite;
+    }
+
+    @keyframes floatText {
+      from {
+        transform: translateY(100vh) translateX(0) scale(1);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(-10vh) translateX(100px) scale(1.2);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  const numberOfHearts = 50;
+  const heartIcons = ['💖', '💘', '💝', '💗', '💞', '💕'];
+
+  for (let i = 0; i < numberOfHearts; i++) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart-icon');
+    heart.innerText = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.top = Math.random() * 100 + 'vh';
+    heart.style.fontSize = 20 + Math.random() * 30 + 'px';
+    heart.style.animationDuration = 5 + Math.random() * 10 + 's';
+
+    document.body.appendChild(heart);
+  }
+
+  const numberOfTexts = 100;
+  for (let i = 0; i < numberOfTexts; i++) {
+    const span = document.createElement('span');
+    span.classList.add('name');
+    span.innerText = 'Song Hươnggg';
+
+    span.style.left = Math.random() * 100 + 'vw';
+    span.style.top = Math.random() * 100 + 'vh';
+    span.style.animationDuration = 5 + Math.random() * 10 + 's';
+    span.style.fontSize = 10 + Math.random() * 30 + 'px';
+
+    document.body.appendChild(span);
+  }
+</script>
+
+</body>
+</html>
